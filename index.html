@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head><title>HTML to pdfmake testbed</title>
+
+    <script src="html-to-pdfmake.js"></script>
+<body><!-- This is a comment node! -->
+
+<p>Click the button get info about the body element's child nodes.</p>
+
+<button onclick="parseHTML()">Try it</button>
+
+<div id="content">
+
+<h3>Brazilian F1 World Champions</h3>
+<p></p>
+<table border="1">
+<tbody>
+<tr>
+<td style="width: 2in;">Emerson Fittipaldi</td>
+<td style="width: 1.25in;" class="right">1972</td>
+<td style="width: 2in;">Lotus</td>
+</tr>
+<tr>
+<td style="width: 168.047px;"></td>
+<td style="width: 136.906px;" class="right">1974</td>
+<td style="width: 110.047px;">McLaren</td>
+</tr>
+<tr>
+<td style="width: 168.047px;">Nelson Piquet</td>
+<td style="width: 136.906px;" class="right">
+<p>1981</p>
+<p>1983</p>
+</td>
+<td style="width: 110.047px;">Brabham</td>
+</tr>
+<tr>
+<td style="width: 168.047px;"></td>
+<td style="width: 136.906px;" class="right">
+<p>1987</p>
+</td>
+<td style="width: 110.047px;">Williams</td>
+</tr>
+<tr>
+<td style="width: 168.047px;">Ayrton Senna</td>
+<td style="width: 136.906px;" class="right">
+<p>1988</p>
+<p>1990</p>
+<p>1991</p>
+</td>
+<td style="width: 110.047px;">McLaren</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+
+
+</div>
+
+<div id="content5">
+<h3>
+Link example
+</h3>
+<p>
+This is a <a href="http://www.google.com">link to Google</a>.
+</p>
+<p class="meu-estilo">
+The following paragraph is a blockquote:
+</p>
+<blockquote>
+<h3>
+A few quick thoughts
+</h3>
+<p><i>Lorem ipsum dolor sit amet, <u>consectetur</u> adipisicing elit.</i> Malit profecta <b>versatur</b> nomine
+ocurreret multavit</p>
+</blockquote>
+ 
+</div>
+
+<div id="content4">
+<h3>
+Brazilian Formula One World Champions
+</h3>
+<table>
+<thead><th>Piloto</th><th>Títulos</th><th>Equipe</th></thead>
+<tr><td rowspan="2">Emerson <i>Fittipaldi</i></td><td>1972</td><td>Lotus</td></tr>
+<tr><td>1974</td><td><b>McLaren</b></td></tr>
+<tr><td rowspan="3">Nelson <i>Piquet</i><s> Sotto <u>Mayor</u></s></td><td>1981</td><td rowspan="2"><u><del>Brabham</del></u></td></tr>
+<tr><td>1983</td></tr>
+<tr><td>1987</td><td>Williams</td></tr>
+<tr><td rowspan="3">Ayrton <i>Senna<del> da Silva</del></i></td><td>1988</td><td rowspan="3"><b>McLaren</b></td></tr>
+<tr><td>1990</td></tr>
+<tr><td>1991</td></tr>
+</table>
+</div>
+
+<div id="content3">
+<h3>
+Tabela com uma única célula
+</h3>
+<table>
+<tr><td>Jackie Stewart</td></tr>
+</table>
+</div>
+
+<div id="content2"><h3>Brazilian Formula 1 world champions</h3>
+<p class="numerado">Informo.</p>
+<p class="numerado">Paguei.</p>
+<p class="numerado">Seguirei informando.</p>
+<p>Three Brazilian pilots won F1 titles:</p>
+<table>
+<thead><tr><th>Nome</th><th>Anos</th></tr></thead>
+<tr><td>Emerson Fittipaldi</td><td><b>1972, 1974</b></td></tr>
+<tr><td>Nelson Piquet</td><td>1981, 1983, 1987</td></tr>
+<tr><td>Ayrton Senna</td><td>1988, 1990, 1991</td></tr>
+<tr><td><i>Rubens Barrichello</i><td rowspan="2">Não ganharam nada</td></tr>
+<tr><td><i>Felipe Massa</i></td></tr>
+<tr><td colspan="2"><i>José Carlos Pace faleceu em 1977</i></tr>
+<tfoot><tr><td>3 pilotos</td><td>8 títulos</td></tr></tfoot>
+</table>
+</div>
+
+<div id="content1">
+<h2>
+First test
+</h2>
+<p><strong>Note:</strong> Whitespace inside elements is considered as text, and text 
+is considered as nodes. Comments are <i>also</i> considered as nodes.</p>
+<p>This is a pure text paragraph.</p>
+<p>This is the odd br:
+<br>
+End of br paragraph</p>
+<ol><li>Ayrton:
+		<ul><li>1988</li><li><i>1990</i></li><li><u><s>1991</s></u></li></ul>
+        <p>Note: Ayrton <b>died</b> in accident at the Imola GP in 1994</p></li>    
+    <li>Nelson</li><li>Emerson</li>
+    <li>Moco</li><li>Ingo</li><li>Alex</li>
+    <li>Serra</li><li>Boesel</li><li>Gugelmin</li>
+    <li>Moreno</li><li>Rubinho</li><li>Pizzonia</li>
+    <li>Burti</li>
+</ol>
+<p><b><i>Headers:</i></b></p>
+<h1>Header 1</h1>
+<h2>Header 2</h2>
+<h3>Header 3</h3>
+<p>Final test: <b>Misturando <i>itálico</i> e <i>negrito</i> no mesmo parágrafo.</b></p>
+
+<p>Mixing <em>italics <strong>and</strong></em><strong> bold</strong>.</p>
+
+<p>
+Underlines <u>are <i>also</i> supported!</u>
+</p>
+<p>
+A lei <del>8.112</del> 8666 regula <s>o regime dos servidores públicos</s> as licitações. 
+</p>
+    
+</div>
+
+<p id="demo"></p>
+
+<script>
+
+</script>
+
+</body>
+</html>
