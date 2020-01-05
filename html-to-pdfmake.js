@@ -1,8 +1,5 @@
 'use strict';
 
-
-console.log('Hello 4')
-
 function getTextContent (node) {
   let text = node.textContent.replace('\n', '')
   if (!text.trim().length)
@@ -102,7 +99,7 @@ function propagateProperties (obj, styles) {
   }
 
   if (!styles.bold && !styles.italics && !styles.underline && !styles.strike) {
-    return obj	// Returns immediately if there are no styles to propagate
+    return obj  // Returns immediately if there are no styles to propagate
   }
   
   if (typeof obj == 'object' && !Array.isArray(obj)) {
@@ -216,8 +213,8 @@ function generateTableFromNode (tableNode) {
       if (colNumber >= numCols) {
         break
       }  
-			let cell = row[j]
-    	tableBody[rowNumber][colNumber] = cell 
+      let cell = row[j]
+      tableBody[rowNumber][colNumber] = cell 
       if (cell.rowSpan && cell.rowSpan > 1) {
         for (let k = 1; k < cell.rowSpan; k++) {
           if (rowNumber + k < numRows) {
@@ -225,7 +222,7 @@ function generateTableFromNode (tableNode) {
           }  
         }
       }
-			if (cell.colSpan && cell.colSpan > 1) {
+      if (cell.colSpan && cell.colSpan > 1) {
         for (let k = 0; k < cell.colSpan - 1; k++) {
           colNumber += 1
           tableBody[rowNumber][colNumber] = {}
@@ -424,7 +421,7 @@ function htmlToPdfmake (element, atRoot, callback) {
       if (!isFirstNode) {
         addLine()
       }
-	    if (typeof obj.text != 'string') {
+      if (typeof obj.text != 'string') {
         if (!Array.isArray(obj.text)) {
           //debugger
           //obj.text = [obj.text]    VAMOS VER COMO FICA SEM ISSO
@@ -512,7 +509,6 @@ function htmlToPdfmake (element, atRoot, callback) {
 let numeroParagrafo = 0
 
   const hackishCallback = function (obj, node) {
-  	debugger
     let nodeName = node.nodeName
     if (nodeName == 'OL') 
       return hackishProcessOL(obj)
@@ -526,7 +522,7 @@ let numeroParagrafo = 0
         {
           text: `${index + 1})`,
           alignment: 'right'
-		},
+    },
         item,
       ]
     })
@@ -564,9 +560,9 @@ let numeroParagrafo = 0
 
 
 function parseHTML () {
-	let rootElement = document.getElementById('content')
-	console.log(rootElement.childNodes)
-	numeroParagrafo = 0
-	let pdfObj = htmlToPdfmake(rootElement, true, hackishCallback)
-	console.log(pdfObj)
+  let rootElement = document.getElementById('content')
+  console.log(rootElement.childNodes)
+  numeroParagrafo = 0
+  let pdfObj = htmlToPdfmake(rootElement, true, hackishCallback)
+  console.log(pdfObj)
 }
