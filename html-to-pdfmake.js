@@ -511,16 +511,18 @@ let numeroParagrafo = 0
   const hackishCallback = function (obj, node) {
     let nodeName = node.nodeName
     if (nodeName == 'OL') 
-      return hackishProcessOL(obj)
+      return hackishProcessOL(obj, node)
     if (nodeName == 'P')
       return hackishProcessP(obj) 
   }
 
-  function hackishProcessOL (obj) {
+  function hackishProcessOL (obj, node) {
+    console.log(node.style)
+    let listType = node.style.listStyleType
     let tableBody = obj.ol.map((item, index) => {
       return [
         {
-          text: `${index + 1})`,
+          text: `${listIndex(index + 1, listType)})`,
           alignment: 'right'
     },
         item,
@@ -557,6 +559,62 @@ let numeroParagrafo = 0
     }
     return obj 
   }
+
+function listIndex (index, type='decimal') {
+  switch (type) {
+    case 'decimal':
+      return index
+    case 'lower-alpha':
+      return alphaSequence(index).toLowerCase()
+    case 'upper-alpha':
+      return alphaSequence(index).toUpperCase()
+    case 'lower-roman':
+      return romanSequence(index).toLowerCase()
+    case 'upper-roman':
+      return romanSequence(index).toUpperCase()
+    default:
+      return index         
+  }
+}
+
+const charCode = 'a'.charCodeAt(0);
+
+function alphaSequence (a){
+  var b = '';
+  var code = []
+  var first = true
+
+  while (a) {
+    a = a - 1
+    if (a < 26) {
+      b = String.fromCharCode(charCode + a)
+    }
+    else {
+      b = String.fromCharCode(charCode + a % 26)
+    }
+    code.push(b)
+    first = false
+    a = (a / 26) | 0;
+    if (a <= 0) break
+    //a = a - 1
+  }
+
+  return code.reverse().join('');
+}
+
+function romanSequence (num) {
+  var lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1},
+      roman = '',
+      i;
+  for ( i in lookup ) {
+    while ( num >= lookup[i] ) {
+      roman += i;
+      num -= lookup[i];
+    }
+  }
+  return roman;
+}
+
 
 
 function parseHTML () {
